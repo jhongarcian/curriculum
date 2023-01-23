@@ -20,7 +20,7 @@ console.log(car['mileage']) // 67302
 console.log(car.mileage) // 67302
 ```
 
-## Strings, boolean, and numbers
+## Strings, booleans, and numbers
 refer to the variable name to read the data.
 ```
 const name = 'Paul'
