@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.header, .students-list-container, footer{
+    text-align: center;
+}
+.header {
+    padding: 12px;
+}
+.students-list-container {
+    padding: 50px;
+    line-height: 1.2rem;
+    list-style: none;
+}
+li:nth-child(1),
+li:nth-child(2),
+li:nth-child(3){
+    color: blue;
+}
