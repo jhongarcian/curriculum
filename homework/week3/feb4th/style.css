@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 22px 0;
+}
+.logo {
+    margin: 0 0 0 10px;
+    letter-spacing: 3px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.nav {
+    position: absolute;
+    display: none;
+    top: 70px;
+    right: 0;
+}
+.nav.active {
+    display: block;
+}
+ul {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    line-height: 0.938;
+    font-size: 0.75rem; 
+}
+li {
+    display: inline-block;
+    padding: 12px 10px;
+    list-style: none;
+}
+li a {
+    text-decoration: none;
+    color:#4e4e4e;
+    cursor: pointer;
+}
+button {
+    margin: 0 10px 0 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+.hamburger-menu {
+    position: relative;
+    border: none;
+    height: 26px;
+    width: 30px;
+}
+.hamburger-menu::after, 
+.hamburger-menu::before,
+.hamburger-menu span::before {
+    background-color: #444;
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 4px;
+}
+.hamburger-menu::before {
+    top: 0;
+}
+.hamburger-menu::after {
+    bottom: 0;
+}
+.hamburger-menu span {
+    display: block;
+}
+.hamburger-menu span::before {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@media screen and (min-width: 920px) {
+    .hamburger-menu::after, 
+    .hamburger-menu::before,
+    .hamburger-menu span::before {
+        display: none;
+    }
+    .nav {
+        display: block;
+        position: relative;
+        top: 0
+    }
+    ul {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
