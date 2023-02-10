@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-color: cornflowerblue;
+    padding: 10px 0 10px 60px;
+}
+.app a {
+    font-size: 1.25rem;
+    text-decoration: none;
+    color: white;
+    font-family: sans-serif;
+    padding: 12px;
+}
