@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: sans-serif;
+}
+.app {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+nav,
+footer {
+    color: white;
+    padding: 20px 0;
+    background: gray;
+}
+nav h1,
+main *,
+footer span {
+    padding: 0 36px;
+}
+main {
+    flex-grow: 1;
+}
+
+main h2 {
+    padding: 20px 36px;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 26px;
+}

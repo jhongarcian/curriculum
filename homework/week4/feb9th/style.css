@@ -3,13 +3,18 @@
     padding: 0;
 }
 header {
+    display: flex;
+    gap: 20px;
     background-color: cornflowerblue;
-    padding: 10px 0 10px 60px;
+    padding: 0 30px;
 }
-.app a {
+header a {
     font-size: 1.25rem;
     text-decoration: none;
     color: white;
     font-family: sans-serif;
-    padding: 12px;
+    padding: 1rem;
+}
+a:nth-child(1) {
+    flex-grow: 1;
 }
