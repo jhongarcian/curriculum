@@ -1,0 +1,36 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background: #fff;
+}
+.app {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    gap: 16px;
+    height: 100vh;
+}
+.container-1 {
+    background: #ff4da6;
+    flex-grow: 1;
+}
+.dark-purple {
+    background: #802654;
+}
+.container-2 {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 6;
+    gap: 16px;
+}
+.pink-light {
+    background: #fe037e;
+    flex-grow: 2;
+}
+.pink-dark {
+    background: #ce0368;
+    flex-grow: 1;
+}

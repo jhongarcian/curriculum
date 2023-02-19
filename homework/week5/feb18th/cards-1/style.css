@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.app {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.app ul {
+    padding: 1.2rem;
+    display: flex;
+    justify-content: space-around;
+}
+.app ul li {
+    border: 1px solid ;
+    list-style: none;
+    padding: 2.5rem ;
+    background: #f0e690;
+}
+.app div {
+    padding-top: 1.2rem;
+    font-size: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

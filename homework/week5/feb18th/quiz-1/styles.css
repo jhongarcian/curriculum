@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.questions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.questions-container div {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0.7rem 0 0 2rem;
+}
