@@ -1,0 +1,79 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: sans-serif;
+    background: #667db6;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+h1,
+h2 {
+    text-transform: capitalize;
+    line-height: 2rem;
+    margin: 24px;
+    color: white;
+}
+.app {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+.flex-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-grow: 2;
+}
+.dog-container {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    width: 300px;
+    height: 320px;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    margin: 24px 0;
+}
+.btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 2.4rem;
+    border-radius: 8px;
+    background-color: #fff;
+    border: 2px solid rgba(165, 42, 42, 0.477);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    cursor: pointer;
+}
+.icon {
+    background:no-repeat url(./images/reshot-illustration-pet-cone-4SY8EKGF5V.png);
+    background-position: center;
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+}
+.correct-dog {
+    border: 10px solid greenyellow;
+}
+.wrong-dog {
+    border: 10px solid red;
+}
+
+@media screen and (max-width: 1300px) {
+    .flex-container {
+        flex-direction: column;
+    }
+  }

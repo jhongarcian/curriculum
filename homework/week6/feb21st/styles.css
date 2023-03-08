@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: auto;
+}
+.container span {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 3rem;
+}
+.btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+.btn {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+}
+.pagination-container {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: row;
+    height: 2rem;
+    gap: 3rem;
+}
+
+.pagination-container > div {
+    background-color: rgb(78, 139, 225);
+    flex-grow: 1;
+}
+.color-red {
+    background-color: red !important;
+}

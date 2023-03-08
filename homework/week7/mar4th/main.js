@@ -1,0 +1,143 @@
+// Const variables
+const URL = "https://dog.ceo/api/breeds/image/random";
+const dogContainer = document.querySelector("#dogs");
+const container = document.querySelector("#container");
+const btn = document.querySelector("#btn");
+const REGEX = /(?<=\/breeds\/)[^\/]+/;
+const scoreFeedback = document.querySelector("#score-feedback");
+const lenghtFeedback = document.querySelector("#length-feedback");
+
+// Tracking state variables
+let correctAnswer = [];
+
+// EventListerner section
+document.addEventListener("click", (e) => {
+  const target = e.target;
+  const question = document.querySelector("#question");
+  const dataQuestion = document.querySelectorAll("[data-question]");
+  const dogQuestion = document.querySelector("#dog-question");
+  if (target === btn) {
+    if (!dataQuestion.length) {
+      printDogs();
+    }
+    removeImgAndQuestion(dataQuestion, dogQuestion);
+  }
+  if (target.matches("[data-question]")) {
+    const correctTarget = target.src.match(question.textContent);
+    correctTarget
+      ? getCorrectAnswer(target, dataQuestion, dogQuestion)
+      : getWrongAnswer(target, dataQuestion, dogQuestion);
+  }
+});
+window.addEventListener("DOMContentLoaded", () => {
+  scoreFeedback.innerText = 0;
+  lenghtFeedback.innerText = correctAnswer.length;
+});
+
+// Web application logic
+
+const getDogImages = async () => {
+  try {
+    let dogs = [];
+    for (let i = 0; i < 4; i++) {
+      const response = await fetch(URL);
+      if (response.ok) {
+        const data = await response.json();
+        const dogSrc = data.message;
+        dogs.push(dogSrc);
+      }
+    }
+    return dogs;
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+const printDogs = async () => {
+  const dogsArray = await getDogImages();
+  dogsArray.forEach((dog) => {
+    createADogImg(dog);
+  });
+  const randomDog = getRandomDog(dogsArray);
+  const randomedDogWithInfo = randomDog.match(REGEX);
+  createPrompt(randomedDogWithInfo);
+};
+
+const createADogImg = (dog) => {
+  const imgTag = document.createElement("img");
+  imgTag.src = dog;
+  imgTag.className = "dog-container";
+  imgTag.dataset.question = "";
+  dogContainer.append(imgTag);
+};
+
+function createPrompt(randomedDogWithInfo) {
+  const h2 = document.createElement("h2");
+  const span = document.createElement("span");
+  h2.id = "dog-question";
+  h2.innerText = `Select the correct Dog: `;
+  container.append(h2);
+  span.innerText = `${randomedDogWithInfo}`;
+  span.id = "question";
+  h2.append(span);
+}
+
+function getWrongAnswer(target, dataQuestions, dogQuestion) {
+  correctAnswer.push(0);
+  target.classList.add("wrong-dog");
+
+  printScore();
+  setTimeout(() => {
+    removeImgAndQuestion(dataQuestions, dogQuestion);
+  }, 200);
+}
+
+function getCorrectAnswer(target, dataQuestions, dogQuestion) {
+  correctAnswer.push(1);
+  target.classList.add("correct-dog");
+
+  printScore();
+  setTimeout(() => {
+    removeImgAndQuestion(dataQuestions, dogQuestion);
+  }, 200);
+}
+
+function printScore() {
+  const result = getSumFromAnswer()
+  scoreFeedback.innerText = result;
+  lenghtFeedback.innerText = correctAnswer.length;
+  isQuizCompleted();
+}
+
+function getSumFromAnswer() {
+  const result = correctAnswer.reduce((currentVal, acoumulator) => {
+    return currentVal + acoumulator;
+  });
+  return result
+}
+
+function removeImgAndQuestion(dataQuestions, dogQuestion) {
+  if (dataQuestions.length === 4) {
+    dataQuestions.forEach((image) => {
+      image.remove();
+    });
+    dogQuestion.remove();
+    printDogs();
+  }
+}
+
+const getRandomDog = (array) => {
+  return array[Math.floor(Math.random() * array.length)];
+};
+
+function isQuizCompleted() {
+  console.log(correctAnswer);
+  if (correctAnswer.length === 5) {
+    const value = getSumFromAnswer();
+    
+  }
+}
+
+// i need to stop the quiz on length 5
+// give the final result
+// reset
