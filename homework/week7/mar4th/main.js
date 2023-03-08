@@ -31,23 +31,23 @@ document.addEventListener("click", (e) => {
       ? getCorrectAnswer(target, dataQuestion, dogQuestion)
       : getWrongAnswer(target, dataQuestion, dogQuestion);
   }
-  if(target === closeModalButton){
+  if (target === closeModalButton) {
     if (!dataQuestion.length) {
       printDogs();
     }
     removeImgAndQuestion(dataQuestion, dogQuestion);
-    closeModal();
-    correctAnswer = []
+    toggleModal();
+    correctAnswer = [];
     printScore();
   }
 });
 window.addEventListener("DOMContentLoaded", () => {
-  scoreFeedback.forEach(score => {
-    score.innerText = 0
-  })
-  lenghtFeedback.forEach(score => {
+  scoreFeedback.forEach((score) => {
+    score.innerText = 0;
+  });
+  lenghtFeedback.forEach((score) => {
     score.innerText = correctAnswer.length;
-  })
+  });
 });
 
 // Web application logic
@@ -120,23 +120,23 @@ function getCorrectAnswer(target, dataQuestions, dogQuestion) {
 
 function printScore() {
   const result = getSumFromAnswer();
-  scoreFeedback.forEach(score => {
+  scoreFeedback.forEach((score) => {
     score.innerText = result;
-  })
-  lenghtFeedback.forEach(score => {
+  });
+  lenghtFeedback.forEach((score) => {
     score.innerText = correctAnswer.length;
-  })
+  });
   isQuizCompleted();
 }
 
 function getSumFromAnswer() {
-  if(correctAnswer.length > 0){
+  if (correctAnswer.length > 0) {
     const result = correctAnswer.reduce((currentVal, acoumulator) => {
       return currentVal + acoumulator;
     });
     return result;
   } else {
-    return 0
+    return 0;
   }
 }
 
@@ -155,19 +155,12 @@ const getRandomDog = (array) => {
 };
 
 function isQuizCompleted() {
-  console.log(correctAnswer);
   if (correctAnswer.length === 5) {
-    const value = getSumFromAnswer();
-    modal.classList.add("open");
-    overlay.classList.add("open");
+    toggleModal()
   }
 }
 
-function closeModal() {
-  modal.classList.remove("open");
-  overlay.classList.remove("open");
+function toggleModal() {
+  modal.classList.toggle("open");
+  overlay.classList.toggle("open");
 }
-
-// i need to stop the quiz on length 5
-// give the final result
-// reset
