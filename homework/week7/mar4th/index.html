@@ -6,6 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./main.js" defer></script>
     <link rel="stylesheet" href="./styles.css">
+    <style>
+        .modal.open {
+            display: flex;
+        }
+        .overlay.open {
+            display: flex;
+        }
+      </style>
     <title>Document</title>
 </head>
 <body>
@@ -15,6 +23,12 @@
         <h2 >your current score is <span id="score-feedback"></span> out of <span id="length-feedback"></span></h2>
         <div id="container" class="container">
             <div class="flex-container" id="dogs"></div>
+        </div>
+        <div id="overlay" class="overlay"></div>
+
+        <div id="modal" class="modal">
+            <h3>your quiz score was <span id="score-feedback"></span> out of <span id="length-feedback"></span> </h3>
+            <button id="close-modal-btn" class="btn">Play Again</button>
         </div>
     </div>
 </body>

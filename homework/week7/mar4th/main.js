@@ -4,8 +4,11 @@ const dogContainer = document.querySelector("#dogs");
 const container = document.querySelector("#container");
 const btn = document.querySelector("#btn");
 const REGEX = /(?<=\/breeds\/)[^\/]+/;
-const scoreFeedback = document.querySelector("#score-feedback");
-const lenghtFeedback = document.querySelector("#length-feedback");
+const scoreFeedback = document.querySelectorAll("#score-feedback");
+const lenghtFeedback = document.querySelectorAll("#length-feedback");
+const modal = document.querySelector("#modal");
+const closeModalButton = document.querySelector("#close-modal-btn");
+const overlay = document.querySelector("#overlay");
 
 // Tracking state variables
 let correctAnswer = [];
@@ -28,10 +31,23 @@ document.addEventListener("click", (e) => {
       ? getCorrectAnswer(target, dataQuestion, dogQuestion)
       : getWrongAnswer(target, dataQuestion, dogQuestion);
   }
+  if(target === closeModalButton){
+    if (!dataQuestion.length) {
+      printDogs();
+    }
+    removeImgAndQuestion(dataQuestion, dogQuestion);
+    closeModal();
+    correctAnswer = []
+    printScore();
+  }
 });
 window.addEventListener("DOMContentLoaded", () => {
-  scoreFeedback.innerText = 0;
-  lenghtFeedback.innerText = correctAnswer.length;
+  scoreFeedback.forEach(score => {
+    score.innerText = 0
+  })
+  lenghtFeedback.forEach(score => {
+    score.innerText = correctAnswer.length;
+  })
 });
 
 // Web application logic
@@ -103,17 +119,25 @@ function getCorrectAnswer(target, dataQuestions, dogQuestion) {
 }
 
 function printScore() {
-  const result = getSumFromAnswer()
-  scoreFeedback.innerText = result;
-  lenghtFeedback.innerText = correctAnswer.length;
+  const result = getSumFromAnswer();
+  scoreFeedback.forEach(score => {
+    score.innerText = result;
+  })
+  lenghtFeedback.forEach(score => {
+    score.innerText = correctAnswer.length;
+  })
   isQuizCompleted();
 }
 
 function getSumFromAnswer() {
-  const result = correctAnswer.reduce((currentVal, acoumulator) => {
-    return currentVal + acoumulator;
-  });
-  return result
+  if(correctAnswer.length > 0){
+    const result = correctAnswer.reduce((currentVal, acoumulator) => {
+      return currentVal + acoumulator;
+    });
+    return result;
+  } else {
+    return 0
+  }
 }
 
 function removeImgAndQuestion(dataQuestions, dogQuestion) {
@@ -134,8 +158,14 @@ function isQuizCompleted() {
   console.log(correctAnswer);
   if (correctAnswer.length === 5) {
     const value = getSumFromAnswer();
-    
+    modal.classList.add("open");
+    overlay.classList.add("open");
   }
+}
+
+function closeModal() {
+  modal.classList.remove("open");
+  overlay.classList.remove("open");
 }
 
 // i need to stop the quiz on length 5
