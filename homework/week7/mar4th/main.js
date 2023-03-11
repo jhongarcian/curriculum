@@ -80,6 +80,7 @@ const printDogs = async () => {
 };
 
 const createADogImg = (dog) => {
+  // create a div parent 
   const imgTag = document.createElement("img");
   imgTag.src = dog;
   imgTag.className = "dog-container";
@@ -164,3 +165,5 @@ function toggleModal() {
   modal.classList.toggle("open");
   overlay.classList.toggle("open");
 }
+
+
