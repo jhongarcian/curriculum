@@ -167,3 +167,7 @@ function toggleModal() {
 }
 
 
+// hide the button 
+// track questions 
+// track correct answer 
+// at the corner .

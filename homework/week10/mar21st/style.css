@@ -1,0 +1,7 @@
+form div {
+    margin: 12px 0;
+}
+form div label {
+    display: inline-block;
+    min-width: 90px;
+}
