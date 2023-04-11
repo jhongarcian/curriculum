@@ -6,7 +6,7 @@
 //   },
 // };
 
-// fetch("https://the-cocktail-db.p.rapidapi.com/randomselection.php", options)
+// fetch("https://the-cocktail-db.p.rapidapi.com/random.php", options)
 //   .then((response) => response.json())
 //   .then((response) => console.log(response))
 //   .catch((err) => console.error(err));
@@ -16,11 +16,12 @@ const CLIENT_ID_KROGER =
 const CLIENT_SECRET_KROGER = "XUYvF1YJPwu1isMhAzOb8dDRGzDSRhxutltpehUV";
 const ENCODED_TOKEN_KROGER =
   "Y29ja3RhaWxpbmdyaWRpZW50bGlzdC01YTc2OTdlMTc1Yjg0N2M2OWQzYmJkODk2MzdiZjkyNDU4NTY0MDI4OTQzMTUxNzc1ODU6VlVoZXB0bHR1eGhSU0R6R1JEZDhiT3pBaE1zaTF1d1BKWTFGdllVWA==";
+const OAUTH_BASE_URL = "https://api-ce.kroger.com/v1/connect/oauth2/token";
 const getToken = async () => {
   const settings = {
     async: true,
     crossDomain: true,
-    url: "https://api-ce.kroger.com/v1/connect/oauth2/token",
+    url: OAUTH_BASE_URL,
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
@@ -47,7 +48,3 @@ const getToken = async () => {
 };
 
 getToken();
-
-// "Authorization": "Basic {{base64(“CLIENT_ID:CLIENT_SECRET”)}}"
-// cocktailingridientlist-5a7697e175b847c69d3bbd89637bf9245856402894315177585
-// XUYvF1YJPwu1isMhAzOb8dDRGzDSRhxutltpehUV

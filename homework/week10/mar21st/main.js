@@ -48,38 +48,39 @@ async function fetchData(body) {
     renderSearchResult(data)
 }
 
+
 function renderSearchResult(data) {
     console.log(data)
 }
 
-const gqlQuery = `query pokemons($limit: Int, $offset: Int) {
-  pokemons(limit: $limit, offset: $offset) {
-    count
-    next
-    previous
-    status
-    message
-    results {
-      url
-      name
-      image
-    }
-  }
-}`;
+// const gqlQuery = `query pokemons($limit: Int, $offset: Int) {
+//   pokemons(limit: $limit, offset: $offset) {
+//     count
+//     next
+//     previous
+//     status
+//     message
+//     results {
+//       url
+//       name
+//       image
+//     }
+//   }
+// }`;
 
-const gqlVariables = {
-  limit: 2,
-  offset: 1,
-};
+// const gqlVariables = {
+//   limit: 2,
+//   offset: 1,
+// };
 
-fetch("https://graphql-pokeapi.graphcdn.app/", {
-  credentials: "omit",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({
-    query: gqlQuery,
-    variables: gqlVariables,
-  }),
-  method: "POST",
-})
-  .then((res) => res.json())
-  .then((res) => console.log("Response from server", res));
+// fetch("https://graphql-pokeapi.graphcdn.app/", {
+//   credentials: "omit",
+//   headers: { "Content-Type": "application/json" },
+//   body: JSON.stringify({
+//     query: gqlQuery,
+//     variables: gqlVariables,
+//   }),
+//   method: "POST",
+// })
+//   .then((res) => res.json())
+//   .then((res) => console.log("Response from server", res));
