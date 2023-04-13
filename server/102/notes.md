@@ -1,4 +1,5 @@
 # Server 102
+
 ## Common express methods to handle client requests
 
 `.get`  
@@ -6,10 +7,13 @@ Returns data to the client which the client has requested
 URL  
 https://highonlife.com/members/328  
 REQUEST BODY
+
 ```json
 null
 ```
+
 RESPONSE BODY
+
 ```json
 {
   "city": "Austin",
@@ -25,15 +29,18 @@ Receives data from the client, usually as a value that corresponds to the key `b
 URL  
 https://highonlife.com/members/new  
 REQUEST BODY
+
 ```json
 {
   "city": "Birmingham",
   "hobbies": ["dozing", "napping", "sleeping"],
   "isNewMember": true,
-  "name": "Billy",
+  "name": "Billy"
 }
 ```
+
 RESPONSE BODY
+
 ```json
 {
   "id": 329,
@@ -46,10 +53,13 @@ Receives data from the client, usually an id, that is then used to delete a reco
 URL  
 https://highonlife.com/members/delete/328  
 REQUEST BODY
+
 ```json
 null
 ```
+
 RESPONSE BODY
+
 ```json
 {
   "id": 328,
@@ -62,12 +72,15 @@ Receives data from the client which updates a record in the database by updating
 URL  
 https://highonlife.com/members/modify/329  
 REQUEST BODY
+
 ```json
 {
   "city": "Boston"
 }
 ```
+
 RESPONSE BODY
+
 ```json
 {
   "id": 329,
@@ -80,16 +93,19 @@ Receives data from the client which updates a record in the database by replacin
 URL  
 https://highonlife.com/members/modify/329  
 REQUEST BODY
+
 ```json
 {
   "city": "Boston",
   "hobbies": ["dozing", "napping", "sleeping"],
   "id": 329,
   "isNewMember": false,
-  "name": "Billy",
+  "name": "Billy"
 }
 ```
+
 RESPONSE BODY
+
 ```json
 {
   "id": 329,
