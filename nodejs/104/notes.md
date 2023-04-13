@@ -13,7 +13,7 @@
 
 ### Import
 ```javascript
-const someModule = require('someModule')
+const cowTalk = require('cowsay')
 ```
 
 ### Export
